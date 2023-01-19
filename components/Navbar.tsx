@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 
 export const Navbar = () => {
   return (
-    <div className="relative left-0 top-0 h-16 w-16">
+    <div className="absolute left-0 top-0 h-[5vh] w-16">
       <div className="flex space-x-20 ml-10 mt-5">
         <NavItem title={"HOME"} route={"/"} />
         <NavItem title={"RSVP"} route={"/rsvp"} />
