@@ -6,9 +6,11 @@
     "start": "next start"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.10.0",
     "@emotion/react": "^11.10.5",
     "@mantine/core": "^5.10.0",
     "@mantine/hooks": "^5.10.0",
+    "@mantine/notifications": "^5.10.4",
     "next": "latest",
     "react": "18.2.0",
     "react-dom": "18.2.0",

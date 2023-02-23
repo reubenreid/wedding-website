@@ -1,18 +1,33 @@
 import { useState } from "react";
-import { RSVPEntry, RSVPForm } from "../RSVPForm";
+import emailjs from "@emailjs/browser"
+import { FormDetails, RSVPEntry, RSVPForm } from "../RSVPForm";
+import { GetKeyData } from "../../pages/api/getkey";
+import { showNotification } from "@mantine/notifications";
 
 export const RSVPPage = () => {
-  const [rsvps, setRsvps] = useState<RSVPEntry[]>([
-    { name: "", requirements: "" },
-  ]);
 
-  const onSubmit = () => {
-    alert("SUBMIT");
+
+  const onSubmit = async ({ formDetails }: { formDetails: FormDetails }) => {
+    const response: GetKeyData = await (await fetch("/api/getkey", {
+      method: "GET",
+    })).json();
+    if (response.pubKey && response.servKey) {
+      await emailjs.send(
+        response.servKey,
+        "template_lmhxfls",
+        formDetails,
+        response.pubKey
+      )
+      showNotification({
+        message: "RSVP submitted",
+        color: "green"
+      })
+    }
   };
 
   return (
-    <div className="w-full h-full">
-      <RSVPForm rsvps={rsvps} setRsvps={setRsvps} onSubmit={onSubmit} />;
+    <div className="">
+      <RSVPForm onSubmit={onSubmit} />
     </div>
   );
 };
