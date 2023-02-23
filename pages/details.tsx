@@ -1,8 +1,8 @@
 import { NextPage } from "next";
-import { RSVPPage } from "../components/PageComponents/RSVPPage";
+import DetailsLanding from "../components/DetailsLanding";
 
 const details: NextPage = () => {
-  return <RSVPPage />;
+  return <DetailsLanding />
 };
 
 export default details;

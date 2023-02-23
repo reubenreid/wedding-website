@@ -1,8 +1,8 @@
 import { NextPage } from "next";
-import { RSVPPage } from "../components/PageComponents/RSVPPage";
+import ContactLanding from "../components/ContactLanding";
 
 const contact: NextPage = () => {
-  return <RSVPPage />;
+  return <ContactLanding />;
 };
 
 export default contact;
